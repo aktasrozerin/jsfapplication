@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <title>Print Users Page</title>
+</h:head>
+<h:body>
+
+<h:form>
+
+    <p:dataTable var="user" value="#{userManagedBean.users}">
+         <p:column headerText="User id">
+            <h:outputText value="#{user.id}" />
+         </p:column>
+
+        <p:column headerText="User Name">
+             <h:outputText value="#{user.username}" />
+         </p:column>
+
+    <p:column headerText="User Attribute">
+        <h:outputText value="#{user.attribute}" />
+    </p:column>
+
+        <p:column headerText="Company">
+            <h:outputText value="#{user.company}" />
+        </p:column>
+
+    <p:column headerText="Operator">
+        <h:outputText value="#{user.op}" />
+    </p:column>
+
+        <p:column exportable="true" width="15%">
+            <f:facet name="header">
+                <h:outputText value="Role(s)"/>
+            </f:facet>
+
+            <div class="datalist-noborder">
+                <p:dataList value="#{user.roles}" var="role"
+                            emptyMessage="No roles!"
+                            type="unordered">
+                    #{role.roleName}
+                </p:dataList>
+            </div>
+        </p:column>
+
+</p:dataTable>
+
+    <p:commandButton value="Return Addition Page" action="#{addUserManagedBean.returnAddition()}" />
+</h:form>
+
+
+</h:body>
+</html>

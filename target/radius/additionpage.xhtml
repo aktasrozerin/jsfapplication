@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+    <title>ADD USER</title>
+</head>
+<body>
+
+<h:form>
+
+    <p:growl id="growl" showDetail="true"/>
+    <p:panel id="main-panel" header="Add User" footer="Add User" style="margin-bottom:20px">
+        <h:panelGrid columns="1">
+            <p:outputLabel rendered="#{addUserManagedBean.getUsers()!= null}">
+            </p:outputLabel>
+
+            <p:outputLabel for="username" value="User Name: " />
+            <p:inputText id="username" value="#{addUserManagedBean.username}"/>
+
+            <p:outputLabel for="attribute" value="Attribute(by default MD5-Password): " />
+            <p:inputText id="attribute" value="#{addUserManagedBean.attribute}" />
+
+            <p:outputLabel for="op" value="Operator(by default ':=' ) " />
+            <p:inputText id="op" value="#{addUserManagedBean.op}" />
+
+            <p:outputLabel for="value" value="Password " />
+            <p:password id="value" value="#{addUserManagedBean.value}" />
+
+
+            <p:commandButton value="Reset" type="reset" />
+            <p:commandButton value="Print All Users" action="#{addUserManagedBean.goToPrintUsersPage()}" update="growl"/>
+            <p:commandButton value="Add User" action="#{addUserManagedBean.addUser()}" update="growl"/>
+        </h:panelGrid>
+    </p:panel>
+
+</h:form>
+
+</body>
+</html>
