@@ -6,4 +6,9 @@ This is a web application that manages users of the freeradius server. One can t
 
 -Don't forget to add MySQL into the project. 
 
+For a detailed information, please see my documentation;
+
+https://aktasrozerin.wordpress.com/2015/10/07/a-basic-jsf-application-to-manage-freeradius-1/
+https://aktasrozerin.wordpress.com/2015/10/08/a-basic-jsf-application-to-manage-freeradius-2/
+
 
